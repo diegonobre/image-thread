@@ -20,15 +20,15 @@
     <div class="container">
         <ul class="nav navbar-nav">
             <li>
-                <button class="btn btn-primary" type="button">
+                <button id="totalNumberOfPosts" class="btn btn-primary" type="button">
                     Posts <span class="badge">{{ totalNumberOfPosts }}</span>
                 </button>
             </li>
             <li>
-                <a href="{{ path('export') }}" class="btn btn-primary" role="button">Export</a>
+                <a id="exportButton" href="{{ path('export') }}" class="btn btn-primary" role="button">Export</a>
             </li>
             <li>
-                <button class="btn btn-primary" type="button">
+                <button id="totalNumberOfViews" class="btn btn-primary" type="button">
                     Views <span class="badge">{{ totalNumberOfViews }}</span>
                 </button>
             </li>
