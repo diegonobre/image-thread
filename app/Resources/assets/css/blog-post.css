@@ -11,3 +11,16 @@ body {
 footer {
     margin: 50px 0;
 }
+
+.mynavbar {
+    text-align:center;
+}
+.mynavbar .nav {
+    float:none;
+}
+.mynavbar .nav li {
+    display:inline-block;
+    float:none;
+    margin:0 20px;
+    vertical-align:middle;
+}
