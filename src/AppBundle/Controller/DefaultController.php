@@ -7,6 +7,7 @@ use AppBundle\Form\Type\PostType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class DefaultController extends Controller
 {
@@ -74,5 +75,43 @@ class DefaultController extends Controller
 
             return $this->redirect($this->generateUrl('homepage'));
         }
+    }
+
+    /**
+     * @Route("/export", name="export")
+     * @return StreamedResponse
+     */
+    public function exportAction()
+    {
+        $response = new StreamedResponse();
+        $response->setCallback(function() {
+            $handle = fopen('php://output', 'w+');
+
+            // Add the header of the CSV file
+            fputcsv($handle, array('id', 'title'),';');
+            // Query data from database
+
+            $results = $this->getDoctrine()
+                ->getRepository('AppBundle:Post')
+                ->getExportPosts();
+
+            // Add the data queried from database
+
+            foreach ($results as $result) {
+                fputcsv(
+                    $handle, // The file pointer
+                    array($result['id'], $result['title']), // The fields
+                    ';' // The delimiter
+                );
+            }
+
+            fclose($handle);
+        });
+
+        $response->setStatusCode(200);
+        $response->headers->set('Content-Type', 'text/csv; charset=utf-8');
+        $response->headers->set('Content-Disposition', 'attachment; filename="export.csv"');
+
+        return $response;
     }
 }
