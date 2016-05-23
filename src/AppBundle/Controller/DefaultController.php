@@ -88,7 +88,7 @@ class DefaultController extends Controller
             $handle = fopen('php://output', 'w+');
 
             // Add the header of the CSV file
-            fputcsv($handle, array('id', 'title', 'name', 'date'),';');
+            fputcsv($handle, array('title', 'name'),';');
 
             // Query data from database
             $posts = $this->getDoctrine()
@@ -99,7 +99,7 @@ class DefaultController extends Controller
             foreach ($posts as $post) {
                 fputcsv(
                     $handle, // The file pointer
-                    array($post['id'], $post['title'], $post['name'], $post['date']), // The fields
+                    array($post['title'], $post['name']), // The fields
                     ';' // The delimiter
                 );
             }
