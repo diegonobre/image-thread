@@ -40,6 +40,7 @@
     {{ parent() }}
 
     <script type="text/javascript">
+        // file-input validations
         $('#post_imgName').fileinput({
             allowedFileExtensions: ["jpg", "JPG", "jpeg", "JPEG", "png", "PNG", "gif", "GIF"],
             maxFileSize: 20480,
@@ -47,9 +48,8 @@
             maxImageHeight: 1080,
             resizePreference: 'width'
         });
-    </script>
 
-    <script type="text/javascript">
+        // what will be updated every X seconds
         window.setInterval(function(){
 
             // UPDATE total number of POSTS
@@ -69,5 +69,6 @@
             })();
 
         }, 15000);
+
     </script>
 {% endblock %}
