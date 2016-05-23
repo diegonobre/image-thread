@@ -24,4 +24,19 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
 
         return $stmt->fetchColumn(0);
     }
+
+    /**
+     * Return coluns for CSV exported file
+     *
+     * @return array
+     * @throws \Doctrine\DBAL\DBALException
+     */
+    public function getExportPosts()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $stmt = $conn->prepare('SELECT id, title FROM post');
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }
