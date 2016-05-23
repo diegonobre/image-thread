@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Diego Nobre">
+
+    <title>{% block title %}ImageThread!{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('dist/css/all.min.css') }}" rel="stylesheet">
+    {% endblock %}
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="mynavbar navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li>
+                <a id="back" href="{{ path('homepage') }}" class="btn btn-primary" role="button"><< back to posts</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    {% block body %}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well">
+                    {% for error in errors %}
+                        <li>{{ error.message }}</li>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    {% endblock %}
+    <hr>
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; ImageThread {{ "now"|date('Y') }}</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </footer>
+</div>
+<!-- /.container -->
+{% block javascripts %}
+    <script src="{{ asset('dist/js/all.min.js') }}"></script>
+{% endblock %}
+</body>
+</html>

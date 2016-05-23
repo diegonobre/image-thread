@@ -14,7 +14,7 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction()
+    public function indexAction($validations = null)
     {
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
@@ -40,6 +40,7 @@ class DefaultController extends Controller
             'posts' => $posts,
             'totalNumberOfPosts' => $totalNumberOfPosts,
             'totalNumberOfViews' => $totalNumberOfViews,
+            'validations' => $validations,
         ));
     }
 
@@ -53,6 +54,22 @@ class DefaultController extends Controller
         $form = $this->createForm(PostType::class, $post);
 
         $form->handleRequest($request);
+
+        $validator = $this->get('validator');
+        $errors = $validator->validate($post);
+
+        if (count($errors) > 0) {
+            /*
+             * Uses a __toString method on the $errors variable which is a
+             * ConstraintViolationList object. This gives us a nice string
+             * for debugging.
+             */
+            $errorsString = (string) $errors;
+
+            return $this->render('default/validation.html.twig', array(
+                'errors' => $errors,
+            ));
+        }
 
         if ($form->isValid()) {
             // $file stores the uploaded PDF file

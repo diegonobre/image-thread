@@ -47,8 +47,14 @@ class Post
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     *
      * @Assert\NotBlank(message="Please, upload a image file.")
      * @Assert\File(mimeTypes={ "image/*" })
+     * @Assert\Image(
+     *     maxSize = "20M",
+     *     maxWidth = 1920,
+     *     maxHeight = 1080
+     * )
      */
     private $imgName;
 
