@@ -12,3 +12,5 @@
 !app/logs/.gitkeep
 /app/phpunit.xml
 /node_modules
+/web/dist/css
+/web/dist/js
