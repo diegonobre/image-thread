@@ -1,0 +1,10 @@
+# @see https://github.com/github/linguist#troubleshooting
+# JS from vendors
+app/Resources/assets/js/bootstrap.js linguist-vendored
+app/Resources/assets/js/fileinput.js linguist-vendored
+app/Resources/assets/js/jquery.js linguist-vendored
+# CSS from vendors
+app/Resources/assets/css/blog-post.css linguist-vendored
+app/Resources/assets/css/bootstrap.css linguist-vendored
+app/Resources/assets/css/fileinput.css linguist-vendored
+
