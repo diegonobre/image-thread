@@ -88,19 +88,18 @@ class DefaultController extends Controller
             $handle = fopen('php://output', 'w+');
 
             // Add the header of the CSV file
-            fputcsv($handle, array('id', 'title'),';');
-            // Query data from database
+            fputcsv($handle, array('id', 'title', 'name', 'date'),';');
 
-            $results = $this->getDoctrine()
+            // Query data from database
+            $posts = $this->getDoctrine()
                 ->getRepository('AppBundle:Post')
                 ->getExportPosts();
 
             // Add the data queried from database
-
-            foreach ($results as $result) {
+            foreach ($posts as $post) {
                 fputcsv(
                     $handle, // The file pointer
-                    array($result['id'], $result['title']), // The fields
+                    array($post['id'], $post['title'], $post['name'], $post['date']), // The fields
                     ';' // The delimiter
                 );
             }

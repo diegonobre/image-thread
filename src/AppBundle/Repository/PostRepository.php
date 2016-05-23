@@ -34,7 +34,7 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
     public function getExportPosts()
     {
         $conn = $this->getEntityManager()->getConnection();
-        $stmt = $conn->prepare('SELECT id, title FROM post');
+        $stmt = $conn->prepare('SELECT id, title, name, date FROM post');
         $stmt->execute();
 
         return $stmt->fetchAll();
