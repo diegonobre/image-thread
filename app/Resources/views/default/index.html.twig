@@ -48,4 +48,26 @@
             resizePreference: 'width'
         });
     </script>
+
+    <script type="text/javascript">
+        window.setInterval(function(){
+
+            // UPDATE total number of POSTS
+            (function() {
+                $.getJSON( "{{ path('post_total_number_of_posts') }}" )
+                        .done(function( data ) {
+                            $( "#totalNumberOfPosts_badge" ).html( data.totalNumberOfPosts );
+                        });
+            })();
+
+            // UPDATE total number of VIEWS
+            (function() {
+                $.getJSON( "{{ path('post_total_number_of_views') }}" )
+                        .done(function( data ) {
+                            $( "#totalNumberOfViews_badge" ).html( data.totalNumberOfViews );
+                        });
+            })();
+
+        }, 15000);
+    </script>
 {% endblock %}

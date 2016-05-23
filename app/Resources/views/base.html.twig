@@ -21,15 +21,15 @@
         <ul class="nav navbar-nav">
             <li>
                 <button id="totalNumberOfPosts" class="btn btn-primary" type="button">
-                    Posts <span class="badge">{{ totalNumberOfPosts }}</span>
+                    Posts <span class="badge" id="totalNumberOfPosts_badge">{{ totalNumberOfPosts }}</span>
                 </button>
             </li>
             <li>
-                <a id="exportButton" href="{{ path('export') }}" class="btn btn-primary" role="button">Export</a>
+                <a id="exportButton" href="{{ path('post_export') }}" class="btn btn-primary" role="button">Export</a>
             </li>
             <li>
                 <button id="totalNumberOfViews" class="btn btn-primary" type="button">
-                    Views <span class="badge">{{ totalNumberOfViews }}</span>
+                    Views <span class="badge" id="totalNumberOfViews_badge">{{ totalNumberOfViews }}</span>
                 </button>
             </li>
         </ul>

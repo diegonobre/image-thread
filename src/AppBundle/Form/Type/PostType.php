@@ -12,7 +12,7 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->setAction('post')
+            ->setAction('post_save')
             ->setMethod('POST')
             ->add('title', TextType::class, array(
                 'label' => false,
