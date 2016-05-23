@@ -15,3 +15,5 @@
 /node_modules
 /web/dist/css
 /web/dist/js
+!/web/uploads/images/.gitkeep
+/web/uploads/images/*
