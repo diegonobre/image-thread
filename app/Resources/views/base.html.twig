@@ -24,7 +24,9 @@
                     Posts <span class="badge">{{ totalNumberOfPosts }}</span>
                 </button>
             </li>
-            <li><button class="btn btn-primary" type="button">Export</button></li>
+            <li>
+                <a href="{{ path('export') }}" class="btn btn-primary" role="button">Export</a>
+            </li>
             <li>
                 <button class="btn btn-primary" type="button">
                     Views <span class="badge">{{ totalNumberOfViews }}</span>
