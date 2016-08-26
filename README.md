@@ -8,12 +8,12 @@ Welcome to ImageThread.
 # create database
 CREATE DATABASE image_thread;
 # create user
-CREATE USER 'usr_img_thread'@'localhost' IDENTIFIED BY '#insided@16';
+CREATE USER 'usr_img_thread'@'localhost' IDENTIFIED BY '#ImgThread';
 # set privileges
-GRANT ALL PRIVILEGES ON image_thread.* TO 'usr_img_thread'@'localhost' IDENTIFIED BY '#insided@16';
+GRANT ALL PRIVILEGES ON image_thread.* TO 'usr_img_thread'@'localhost' IDENTIFIED BY '#ImgThread';
 flush privileges;
 
-git clone https://diegocnobre@bitbucket.org/diegocnobre/image-thread.git
+git clone https://github.com/diegonobre/image-thread.git
 cd image-thread
 composer install
 
